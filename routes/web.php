@@ -15,7 +15,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-   return view('welcome');
+   return redirect('api-docs');
 });
+Route::get('/api-docs', function () {
+    return view('swagger');
+})->name('api-docs');
+
+Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
